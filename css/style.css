@@ -9,3 +9,73 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+/*-----------BASE STYLES-----------*/
+
+#app {
+  border: 1px solid hsl(0, 0%, 0%);
+  width: 31.25rem;
+  height: 31.25rem;
+  font-family: sans-serif;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background: #222;
+}
+
+.header > * {
+  color: hsl(0, 0%, 93%);
+}
+
+.header__turn {
+  padding: 0.75rem;
+}
+
+.header__status {
+  padding: 0.75rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.header__restart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.board {
+  display: grid;
+  background: hsl(0, 0%, 80%);
+  gap: 0.625rem;
+  padding: 0.625rem;
+  flex-grow: 1;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.board__tile {
+  background: hsl(0, 0%, 100%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: hsl(0, 0%, 13%);
+}
+
+.board__tile:hover {
+  background: hsl(0, 0%, 93%);
+}
+
+.board__tile--winner {
+  color: hsl(120, 100%, 25%);
+}
