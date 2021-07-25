@@ -6,7 +6,6 @@ export default class GameView {
           <div class="header__turn">
           </div>
           <div class="header__status">
-              In Progress
           </div>
           <button type="button" class="header__restart">
               <i class="material-icons">refresh</i>
@@ -55,6 +54,15 @@ export default class GameView {
       ".header__turn"
     ).textContent = `${game.turn}'s turn`;
   }
-  updateStatus(game) {}
+  updateStatus(game) {
+    let status = "In Progress";
+
+    if (game.findWinningCombo()) {
+      status = `${game.turn} is the Winner!`;
+    } else if (!game.isInProgress()) {
+      status = "It's a tie...";
+    }
+    this.root.querySelector(".header__status").textContent = status;
+  }
   updateBoard(game) {}
 }
