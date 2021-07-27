@@ -6,11 +6,13 @@ let gameView = new GameView(document.getElementById("app"));
 
 //functions
 gameView.onTileClick = function (i) {
-  console.log(`Tile clicked ${i}`);
+  game.makeMove(i);
+  gameView.update(game);
 };
 
 gameView.onRestartClick = function () {
-  console.log("Game Restarted");
+  game = new Game();
+  gameView.update(game);
 };
 
 gameView.update(game);

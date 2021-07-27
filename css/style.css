@@ -9,41 +9,94 @@ html {
 *::after {
   box-sizing: inherit;
 }
+/*-----------CSS CUSTOM PROPERTIES-----------*/
+:root {
+  --winning-combo: hsl(133, 86%, 62%);
+  --tile-hover: hsl(187, 100%, 90%);
+  --bg: hsl(35, 100%, 91%);
+  --bg-border: hsl(205, 100%, 7%);
+  --header-bg: hsl(205, 100%, 7%);
+  --header-font-color: hsl(0, 0%, 93%);
+  --board-grid: hsl(29, 100%, 50%);
+  --tile-bg: hsl(0, 0%, 100%);
+  --tile-text: hsl(205, 100%, 7%);
+  --tile-font: "Architects Daughter", cursive;
+  --header-font: monospace;
+}
 
 /*-----------BASE STYLES-----------*/
+body {
+  background: var(--bg);
+}
+
+footer {
+  text-align: center;
+  padding-top: 1rem;
+  font-family: var(--header-font);
+}
+
+/* a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+} */
+
+a {
+  text-decoration: underline 0.15em rgba(0, 0, 0, 1);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 300ms, text-underline-offset 300ms;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration-color: var(--winning-combo);
+  text-underline-offset: 0.4em;
+}
+a:active,
+a:focus {
+  color: inherit;
+}
 
 #app {
-  border: 1px solid hsl(0, 0%, 0%);
-  width: 31.25rem;
-  height: 31.25rem;
-  font-family: sans-serif;
+  border: 0.3125rem solid var(--bg-border);
+  width: 41.25rem;
+  height: 41.25rem;
+  font-family: var(--tile-font);
   font-weight: bold;
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 
 .header {
   display: flex;
   align-items: center;
-  background: #222;
+  background: var(--header-bg);
+  font-family: var(--header-font);
 }
 
 .header > * {
-  color: hsl(0, 0%, 93%);
+  color: var(--header-font-color);
+  font-size: 1.5rem;
 }
 
 .header__turn {
-  padding: 0.75rem;
+  padding: 1rem 1rem 1rem 2.5rem;
+  font-size: 1rem;
 }
 
 .header__status {
-  padding: 0.75rem;
+  padding: 1rem 5rem 1rem 2rem;
   flex-grow: 1;
   text-align: center;
 }
 
 .header__restart {
   display: flex;
+  padding: 1.25rem;
   align-items: center;
   justify-content: center;
   border: none;
@@ -52,9 +105,13 @@ html {
   cursor: pointer;
 }
 
+.material-icons {
+  font-size: 2.25rem;
+}
+
 .board {
   display: grid;
-  background: hsl(0, 0%, 80%);
+  background: var(--board-grid);
   gap: 0.625rem;
   padding: 0.625rem;
   flex-grow: 1;
@@ -63,19 +120,19 @@ html {
 }
 
 .board__tile {
-  background: hsl(0, 0%, 100%);
+  background: var(--tile-bg);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 5rem;
-  color: hsl(0, 0%, 13%);
+  font-size: 7rem;
+  color: var(--tile-text);
 }
 
 .board__tile:hover {
-  background: hsl(0, 0%, 93%);
+  background: var(--tile-hover);
 }
 
 .board__tile--winner {
-  color: hsl(120, 100%, 25%);
+  color: var(--winning-combo);
 }

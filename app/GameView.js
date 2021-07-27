@@ -64,5 +64,18 @@ export default class GameView {
     }
     this.root.querySelector(".header__status").textContent = status;
   }
-  updateBoard(game) {}
+  updateBoard(game) {
+    const winningCombo = game.findWinningCombo();
+
+    for (let i = 0; i < game.board.length; i++) {
+      const tile = this.root.querySelector(`.board__tile[data-index="${i}"]`);
+
+      tile.classList.remove("board__tile--winner");
+      tile.textContent = game.board[i];
+
+      if (winningCombo && winningCombo.includes(i)) {
+        tile.classList.add("board__tile--winner");
+      }
+    }
+  }
 }

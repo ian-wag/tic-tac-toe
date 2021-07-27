@@ -5,7 +5,7 @@ export default class Game {
   }
 
   nextTurn() {
-    this.turn = this.turn === "X" ? "0" : "X";
+    this.turn = this.turn === "X" ? "O" : "X";
   }
 
   makeMove(i) {
