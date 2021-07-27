@@ -35,15 +35,6 @@ footer {
   font-family: var(--header-font);
 }
 
-/* a,
-a:hover,
-a:focus,
-a:active {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-} */
-
 a {
   text-decoration: underline 0.15em rgba(0, 0, 0, 1);
   text-underline-offset: 0.2em;
